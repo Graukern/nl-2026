@@ -1,0 +1,14 @@
+# Слайд 6. Запуск Julia
+
+# Проверка версии
+julia --version
+
+# Запуск файла
+julia script.jl
+
+# Интерактивный REPL
+julia
+
+# REPL в Docker
+# (используем ветку 1.11, как в презентации)
+docker run --rm -it julia:1.11
