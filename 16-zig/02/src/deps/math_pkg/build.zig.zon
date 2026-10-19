@@ -1,0 +1,13 @@
+// deps/math_pkg/build.zig.zon — манифест распространяемого пакета
+.{
+    .name = .math_pkg,
+    .version = "0.1.0",
+    .fingerprint = 0xa8bc6f3a2ccc04f0, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.17.0",
+    .dependencies = .{},
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "math.zig",
+    },
+}
