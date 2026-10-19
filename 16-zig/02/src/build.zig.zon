@@ -1,0 +1,30 @@
+// build.zig.zon — метаданные и зависимости пакета
+// Локальная path-зависимость позволяет показать пакет без сети.
+.{
+    // Имя пакета: оно же используется как ключ зависимости
+    // при добавлении через zig fetch --save.
+    .name = .zig_lecture_02,
+    // Версия пакета (семантическое версионирование).
+    .version = "0.0.0",
+    // Глобальный идентификатор пакета: имя + fingerprint.
+    // Генерируется однажды и дальше не меняется.
+    .fingerprint = 0xe81139ad20925582, // Changing this has security and trust implications.
+    .minimum_zig_version = "0.17.0",
+    // URL-зависимость фиксируют адресом и content hash,
+    // локальная path-зависимость — путем относительно корня сборки.
+    // Фрагмент build.zig.zon:
+    .dependencies = .{
+        .math_pkg = .{
+            .path = "deps/math_pkg",
+        },
+    },
+    // Файлы, входящие в пакет.
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "modules",
+        "deps",
+        "06_module.zig",
+        "07_package.zig",
+    },
+}
