@@ -1,0 +1,15 @@
+FROM debian:bookworm-slim
+
+ARG ZIG_VERSION=0.17.0
+
+RUN apt-get update && apt-get install -y curl xz-utils \
+    && curl -L \
+    https://ziglang.org/download/${ZIG_VERSION}/zig-x86_64-linux-${ZIG_VERSION}.tar.xz \
+    -o /tmp/zig.tar.xz \
+    && tar -xf /tmp/zig.tar.xz -C /opt \
+    && ln -s /opt/zig-x86_64-linux-${ZIG_VERSION}/zig /usr/local/bin/zig
+
+WORKDIR /app
+COPY . .
+
+CMD ["zig", "run", "05_main.zig"]
